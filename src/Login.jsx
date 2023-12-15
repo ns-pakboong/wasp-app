@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "./firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
+import "./bootstrap.min.css";
+import "./Login.css";
+
 
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [notice, setNotice] = useState("");
+    const [currentUser, setCurrentUser] = useState();
 
     const loginWithUsernameAndPassword = async (e) => {
         e.preventDefault();
+        //FirebaseError.auth().signInWithPopup(provider);
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
@@ -19,6 +24,14 @@ const Login = () => {
             setNotice("You entered a wrong username or password.");
         }
     }
+
+    //const provider = new FirebaseError.auth.GoogleAuthProvider();
+    
+   useEffect(() => {
+        auth.onAuthStateChanged((user) => {
+            setCurrentUser(user);
+        });
+    }, []);
 
     return(
         <div className = "container">
@@ -38,15 +51,18 @@ const Login = () => {
                         <label htmlFor = "exampleInputPassword1" className = "form-label">Password</label>
                     </div>
                     <div className = "d-grid">
-                        <button type = "submit" className = "btn btn-primary pt-3 pb-3" onClick = {(e) => loginWithUsernameAndPassword(e)}>Submit</button>
+                        <button type = "button" class = "btn-submit" onClick = {(e) => loginWithUsernameAndPassword(e)}>Signin</button>
                     </div>
                     <div className = "mt-3 text-center">
                         <span>Need to sign up for an account? <Link to = "./signup">Click here.</Link></span>
                     </div>
                 </form>
             </div>
+
+           
         </div>
     )
 }
+
 
 export default Login

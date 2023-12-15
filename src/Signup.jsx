@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { auth } from "./firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
+import "./bootstrap.min.css";
+import "./Signup.css";
 
 const Signup = () => {
     const navigate = useNavigate();
