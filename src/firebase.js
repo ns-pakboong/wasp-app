@@ -1,18 +1,21 @@
 // Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getStorage } from "firebase/storage";
+import { getAuth } from 'firebase/auth';
+import { getStorage } from 'firebase/storage';
 
+
+// TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDlujotevv4WAFbRnNfUPqn3id2m3fAo7s",
-  authDomain: "wasp-auth.firebaseapp.com",
-  projectId: "wasp-auth",
-  storageBucket: "wasp-auth.appspot.com",
-  messagingSenderId: "171983953973",
-  appId: "1:171983953973:web:f17e9564d4159b5717917c"
+  apiKey: "AIzaSyBQXRg0F31WAjW0WDI5t6TWeTaBRTamp_A",
+  authDomain: "wasp-app-c13c7.firebaseapp.com",
+  projectId: "wasp-app-c13c7",
+  storageBucket: "wasp-app-c13c7.appspot.com",
+  messagingSenderId: "538452864836",
+  appId: "1:538452864836:web:9dfdb4a66706dacb493111"
 };
 
 // Initialize Firebase
